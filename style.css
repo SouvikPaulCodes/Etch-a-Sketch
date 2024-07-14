@@ -1,0 +1,51 @@
+.buttons, .row {
+    display: flex;
+    justify-content: center;
+}
+
+.boxes {
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    flex: 1 0 auto;
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 750px;
+    height: 750px;
+    justify-content: stretch;
+}
+
+.row {
+    width: 100%;
+    flex: 1 0 auto;
+    opacity: 1;
+}
+
+h1 {
+    font-family:  'Brush Script MT', 'Brush Script Std', cursive;
+    text-align: center;
+    font-size: 75px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    gap: 20px;
+    padding: 20px;
+}
+
+button {
+    flex-basis: auto;
+    font-size: 20px;
+}
+
+body {
+    background-image: url("https://c7.alamy.com/comp/ENM4HP/creative-art-sketch-pad-background-ENM4HP.jpg");
+    background-size: 1780px 1000px;
+}
