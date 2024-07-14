@@ -3,6 +3,7 @@ let size = 16;
 const input = document.querySelector(".input");
 const container = document.querySelector(".container");
 const reset = document.querySelector(".reset");
+const color = document.querySelector(".color");
 
 let row = [];
 let box =[];
@@ -54,6 +55,8 @@ input.addEventListener("click", function inputSize() {
 
     addColor();
     resetColor();
+    selectColor();
+    
 })
 
 function addColor() {
@@ -79,8 +82,31 @@ function resetColor() {
     });
 }
 
+function selectColor() {
+    color.addEventListener("click", () => {
+        const choice = prompt("Please enter a colour(Enter 'random' for random colours):");
+
+        if (choice==="random") {
+            addColor();
+        }
+
+        if (choice && choice!='random') {
+            for (let i =0; i<size; i++){
+                for (let j = 0; j<size; j++) {
+                    box[[i, j]].addEventListener("mouseover", () => {
+                        box[[i, j]].style.background = choice;
+                    });
+                }
+            }
+        }
+
+    })
+}
+
 addColor();
 resetColor();
+selectColor();
+
 
     
 
