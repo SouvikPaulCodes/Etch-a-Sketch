@@ -19,6 +19,22 @@ for (let i = 0; i<size; i++){
     container.appendChild(row[i]);
 }
 
+let choice;
+color.addEventListener("click", () => {
+    choice = setColor();
+    if (choice==="random" || !(choice)) {
+        addColor();
+    } else if (choice && choice!='random') {
+        for (let i =0; i<size; i++){
+            for (let j = 0; j<size; j++) {
+                box[[i, j]].addEventListener("mouseover", () => {
+                    box[[i, j]].style.background = choice;
+                });
+            }
+        }
+    }
+});
+
 input.addEventListener("click", function inputSize() {
 
     for (let i = 0; i<size; i++){
@@ -52,12 +68,20 @@ input.addEventListener("click", function inputSize() {
             container.appendChild(row[i]);
         }       
     }
-
-    addColor();
+    console.log(choice);
+    if (choice==="random" || !(choice)) {
+        addColor();
+    } else if (choice && choice!='random') {
+        for (let i =0; i<size; i++){
+            for (let j = 0; j<size; j++) {
+                box[[i, j]].addEventListener("mouseover", () => {
+                    box[[i, j]].style.background = choice;
+                });
+            }
+        }
+    }
     resetColor();
-    selectColor();
-    
-})
+});
 
 function addColor() {
     for (let i =0; i<size; i++){
@@ -82,30 +106,12 @@ function resetColor() {
     });
 }
 
-function selectColor() {
-    color.addEventListener("click", () => {
-        const choice = prompt("Please enter a colour(Enter 'random' for random colours):");
-
-        if (choice==="random") {
-            addColor();
-        }
-
-        if (choice && choice!='random') {
-            for (let i =0; i<size; i++){
-                for (let j = 0; j<size; j++) {
-                    box[[i, j]].addEventListener("mouseover", () => {
-                        box[[i, j]].style.background = choice;
-                    });
-                }
-            }
-        }
-
-    })
+function setColor() {
+    return prompt("Please enter a colour(Click Cancel for random colours):");  
 }
 
-addColor();
+addColor()
 resetColor();
-selectColor();
 
 
     
